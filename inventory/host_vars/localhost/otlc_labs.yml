@@ -2,8 +2,17 @@
 # https://labs.opentlc.com/api/service_catalogs?expand=resources
 # https://labs.opentlc.com/api/service_templates?expand=resources
 #
-# Discover the mandatory dialog parameters at:
+# Discover the mandatory dialog parameters for the lab at:
 # https://labs.opentlc.com/api/service_requests?expand=resources
+#
+# Discover cutom actions (like Start) for a service, example:
+# https://labs.opentlc.com/api/services/20000000423849?attributes=custom_actions,custom_action_buttons
+#
+# Or provision the lab manually and then list the parameteres using:
+# ansible-playbook -i inventory/localhost.ini otlc_provisioned_services.yml
+#
+# ManageIQ API documentation:
+# https://www.manageiq.org/docs/api
 
 otlc_labs:
   ocp3_migration:
@@ -65,6 +74,32 @@ otlc_labs:
       dialog_expiration: "6"
       dialog_notes: "Customer Activity - Customer environment testing"
       dialog_region: na_sandboxes_gpte
+      dialog_runtime: "8"
+
+  ocp4_configuration:
+    catalog_id: '20000000000040'
+    catalog_name: 'OPENTLC OpenShift 4 Labs'
+    template_id: '20000000000741'
+    template_name: 'OpenShift 4 Configuration Lab'
+    order_options:
+      dialog_check: t
+      dialog_environment: PROD
+      dialog_expiration: "7"
+      dialog_notes: "Customer Activity - Customer environment testing"
+      dialog_region: na_sandboxes_gpte
+      dialog_runtime: "8"
+
+  ocs4_implementation:
+    catalog_id: '20000000000040'
+    catalog_name: 'OPENTLC OpenShift 4 Labs'
+    template_id: '20000000000951'
+    template_name: 'OCS 4 Implementation on AWS'
+    order_options:
+      dialog_check: t
+      dialog_environment: PROD
+      dialog_expiration: "7"
+      dialog_region: na
+      dialog_notes: "Customer Activity - Customer environment testing"
       dialog_runtime: "8"
 
   rhel7_implementation:
