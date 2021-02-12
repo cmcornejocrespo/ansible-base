@@ -20,6 +20,10 @@
 
 - name: Deploy service mesh instance
   command: oc apply --kustomize {{ service_mesh_kustomizations.service_mesh_instance }}
+  register: result
+  until: result.rc == 0
+  retries: 10
+  delay: 5
 
 - name: Waiting since {{ lookup("pipe", "date +%r") }} for service mesh deployment to complete
   k8s_info:

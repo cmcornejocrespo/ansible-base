@@ -19,6 +19,7 @@
   community.kubernetes.helm:
     name: '{{ external_secrets_name }}'
     chart_ref: external-secrets/kubernetes-external-secrets
+    chart_version: '{{ external_secrets_chart_version | default(omit) }}'
     release_namespace: '{{ external_secrets_namespace }}'
     create_namespace: True
     release_values:
@@ -28,6 +29,9 @@
         VAULT_ADDR: '{{ vault_addr }}'
         DEFAULT_VAULT_MOUNT_POINT: kubernetes
         DEFAULT_VAULT_ROLE: external-secrets
+      serviceMonitor:
+        enabled: true
+        namespace: '{{ external_secrets_namespace }}'
 
 - name: Create an external secret for testing
   k8s:
@@ -40,6 +44,9 @@
     name: '{{ external_secrets_name }}-test'
     namespace: '{{ external_secrets_namespace }}'
   register: test_secret
+  until: test_secret.resources | length > 0
+  retries: 120
+  delay: 1
 
 - name: Fail if the secret value is not correct
   fail:
