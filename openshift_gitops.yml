@@ -3,4 +3,4 @@
   gather_facts: no
   tasks:
     - import_role:
-        name: openshift_argocd_operator
+        name: openshift_gitops
