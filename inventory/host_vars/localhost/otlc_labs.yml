@@ -27,7 +27,7 @@ otlc_labs:
       dialog_region: na
       dialog_runtime: "8"
       dialog_notes: "Customer Activity - Informal training"
-      dialog_environment: "PROD"
+      dialog_environment: PROD
 
   ocp4_migration:
     catalog_id: '20000000000040'
@@ -40,7 +40,7 @@ otlc_labs:
       dialog_region: na_sandboxes_gpte
       dialog_runtime: "10"
       dialog_notes: "Customer Activity - Informal training"
-      dialog_environment: "PROD"
+      dialog_environment: PROD
 
   ocp4_clientvm:
     catalog_id: '20000000000040'
@@ -69,9 +69,10 @@ otlc_labs:
   ocp4_installation:
     catalog_id: '20000000000040'
     catalog_name: 'OPENTLC OpenShift 4 Labs'
-    template_id: '20000000000619'
+    template_id: '20000000001005'
     template_name: 'OpenShift 4 Installation Lab'
     order_options:
+      dialog_environment: PROD
       dialog_expiration: "6"
       dialog_notes: "Customer Activity - Customer environment testing"
       dialog_region: na_sandboxes_gpte
