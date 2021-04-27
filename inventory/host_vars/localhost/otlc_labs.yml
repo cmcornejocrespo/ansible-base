@@ -13,8 +13,40 @@
 #
 # ManageIQ API documentation:
 # https://www.manageiq.org/docs/api
+#
+# Possible dialog_region values:
+# na_sandbox_gpte
+# emea_sandbox_gpte
+# apac_sandbox_gpte
 
 otlc_labs:
+  # OCP 4.5.4, cannot add records to the DNS zone, shuts down after 8 hours, deleted after 2 days, RHACM 2.0.3 preinstalled
+  acm_foundation_hub:
+    catalog_id: '20000000000040'
+    template_name: 'OPENTLC OpenShift 4 Labs'
+    template_id: '20000000000859'
+    catalog_name: 'OpenShift 4 ACM Foundation Lab (Hub)'
+    order_options:
+      dialog_expiration: "2"
+      dialog_region: na_sandbox_gpte
+      dialog_runtime: "8"
+      dialog_notes: "Customer Activity - Customer environment testing"
+      dialog_environment: PROD
+
+  # OCP 4.4.29, cannot add records to the DNS zone, shuts down after 8 hours, deleted after 2 days
+  acm_foundation_managed:
+    catalog_id: '20000000000040'
+    template_name: 'OPENTLC OpenShift 4 Labs'
+    template_id: '20000000000860'
+    catalog_name: 'OpenShift 4 ACM Foundation Lab (Managed)'
+    order_options:
+      dialog_check: t
+      dialog_expiration: "2"
+      dialog_region: na_sandbox_gpte
+      dialog_runtime: "8"
+      dialog_notes: "Customer Activity - Customer environment testing"
+      dialog_environment: PROD
+
   ocp3_migration:
     catalog_id: '20000000000040'
     catalog_name: 'OPENTLC OpenShift 4 Labs'
@@ -37,7 +69,7 @@ otlc_labs:
     order_options:
       dialog_check: t
       dialog_expiration: "7"
-      dialog_region: na_sandboxes_gpte
+      dialog_region: na_sandbox_gpte
       dialog_runtime: "10"
       dialog_notes: "Customer Activity - Informal training"
       dialog_environment: PROD
@@ -75,7 +107,7 @@ otlc_labs:
       dialog_environment: PROD
       dialog_expiration: "6"
       dialog_notes: "Customer Activity - Customer environment testing"
-      dialog_region: na_sandboxes_gpte
+      dialog_region: na_sandbox_gpte
       dialog_runtime: "8"
 
   # Cannot add records to the DNS zone, shuts down after 8 hours
@@ -89,10 +121,10 @@ otlc_labs:
       dialog_environment: PROD
       dialog_expiration: "7"
       dialog_notes: "Customer Activity - Customer environment testing"
-      dialog_region: na_sandboxes_gpte
+      dialog_region: na_sandbox_gpte
       dialog_runtime: "8"
 
-  # OCP 4.6.2, cannot add records to the DNS zone, shuts down after 8 hours
+  # OCP 4.7.4, cannot add records to the DNS zone, shuts down after 8 hours
   ocs4_implementation:
     catalog_id: '20000000000040'
     catalog_name: 'OPENTLC OpenShift 4 Labs'
