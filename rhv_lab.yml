@@ -1,0 +1,4 @@
+- hosts: rhvh.lab.example.com
+  tasks:
+    - import_role:
+        name: rhv_lab
